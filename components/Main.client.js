@@ -82,49 +82,47 @@ export default function Main() {
 
   return (
     <>
-    <h1>Extract Webcam Texts</h1>
-          <div className="container">
-            <div className="row">
-              <div className="column">
-                <video
-                  className="display"
-                  width={800}
-                  height={450}
-                  ref={rawVideo}
-                  autoPlay
-                  playsInline
-                ></video>
-              </div>
-              <div className="column">
-                <canvas
-                  className="display"
-                  width={800}
-                  height={450}
-                  ref={processedVid}
-                ></canvas>
-              </div>
-              {output && (
-              <div className="column">
-                  <div ref={text_canvas}>
-                    {output}
-                  </div>
-              </div>
-                )}
+      <h1>Extract Webcam Texts</h1>
+      <div className="container">
+        <div className="row">
+          <div className="column">
+            <video
+              className="display"
+              width={800}
+              height={450}
+              ref={rawVideo}
+              autoPlay
+              playsInline
+            ></video>
+          </div>
+          <div className="column">
+            <canvas
+              className="display"
+              width={800}
+              height={450}
+              ref={processedVid}
+            ></canvas>
+          </div>
+          {output && (
+            <div className="column">
+              <div ref={text_canvas}>{output}</div>
             </div>
-          </div>
+          )}
+        </div>
+      </div>
 
-          <div className="buttons">
-            <button className="button" onClick={startCamHandler} ref={startBtn}>
-              Start Webcam
-            </button>
-            <button className="button" onClick={stopCamHandler} ref={closeBtn}>
+      <div className="buttons">
+        <button className="button" onClick={startCamHandler} ref={startBtn}>
+          Start Webcam
+        </button>
+        {/* <button className="button" onClick={stopCamHandler} ref={closeBtn}>
               Close camera
-            </button>
+            </button> */}
 
-            <button className="button" onClick={captureSnapshot} ref={snapBtn}>
-              Capture snapshot and save
-            </button>
-          </div>
+        <button className="button" onClick={captureSnapshot} ref={snapBtn}>
+          Capture, save and close cam
+        </button>
+      </div>
     </>
   );
 }
